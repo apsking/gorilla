@@ -114,7 +114,6 @@ eg.
 
 ```
 gorilla --config ./my-config.json ...
-
 ```
 
 ### Config
@@ -136,3 +135,20 @@ The following JSON keys are supported:
 - `require` - (`string[]`) - Scripts to include within the script
 - `resource` - (`string[]`) - Resources to include within the script
 - `version` - (`string`) - Version number of the script
+
+If no config is supplied, the following default config is used:
+
+```
+{
+  "name": "New Userscript",
+  "namespace": "http://tampermonkey.net/",
+  "version": "0.1",
+  "description": "Gorilla-built, rock-solid, Monkey script",
+  "updateURL": "",
+  "downloadURL": "",
+  "author": "You",
+  "include": [],
+  "match": ["http://*/*"],
+  "grant": [],
+}
+```
