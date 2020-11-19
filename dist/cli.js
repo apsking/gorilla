@@ -21,18 +21,16 @@ const DEFAULT_CONFIG = {
     "match": ["http://*/*"],
     "grant": []
 };
+/*
+* Fetch a GreaseMonkey-formatted banner text, which will
+* prepend the script itself.
+*/
 const getBanner = (config) => {
     const items = Object.keys(config)
         .map(key => ({ key, value: config[key] }))
-        .map((item) => {
-        if (Array.isArray(item.value)) {
-            return item.value
-                .map(inner => ({ key: item.key, value: inner }));
-        }
-        else {
-            return item;
-        }
-    })
+        .map((item) => Array.isArray(item.value) ?
+        item.value.map(inner => ({ key: item.key, value: inner })) :
+        item)
         .flatMap(i => i);
     const scriptLines = items
         .map(({ key, value }) => `// @${key}    ${value}`)
@@ -57,7 +55,7 @@ const cli = meow__default['default'](`
 	  --output, -c  Output filename
 
 	Examples
-	  $ gorilla --config
+	  $ gorilla --input ./my-script.ts --output ./my-script.user.js
 `, {
     flags: {
         config: {
@@ -77,6 +75,10 @@ const cli = meow__default['default'](`
     }
 });
 const { config, output, input } = cli.flags;
+//Provide warning on ouput
+if (!output.includes('user.js')) {
+    console.warn("GreaseMonkey scripts must end in '.user.js'. Consider renaming your output file.");
+}
 // Default to config, if not provided
 const configJSON = config && config !== "" ?
     JSON.parse(fs.readFileSync(config, 'utf8')) :

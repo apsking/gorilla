@@ -15,7 +15,7 @@ const cli = meow(`
 	  --output, -c  Output filename
 
 	Examples
-	  $ gorilla --config
+	  $ gorilla --input ./my-script.ts --output ./my-script.user.js
 `, {
 	flags: {
 		config: {
@@ -36,6 +36,11 @@ const cli = meow(`
 });
 
 const { config, output, input } = cli.flags;
+
+//Provide warning on ouput
+if (!output.includes('user.js')) {
+	console.warn("GreaseMonkey scripts must end in '.user.js'. Consider renaming your output file.")
+}
 
 // Default to config, if not provided
 const configJSON = config && config !== "" ?

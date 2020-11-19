@@ -1,5 +1,7 @@
-// Attributes for all MetaBlock items
-// https://wiki.greasespot.net/Metadata_Block
+/*
+* Attributes for all MetaBlock items:
+* https://wiki.greasespot.net/Metadata_Block
+*/
 type GorillaConfig = {
     author?: string,
     description?: string,
@@ -28,7 +30,12 @@ export const DEFAULT_CONFIG = {
     "include": [],
     "match": ["http://*/*"],
     "grant": []
-}
+};
+
+/*
+* Fetch a GreaseMonkey-formatted banner text, which will
+* prepend the script itself.
+*/
 const getBanner = (config:GorillaConfig):string => {
     const items = Object.keys(config)
         .map(key => ({key, value: config[key]}))
