@@ -1,4 +1,4 @@
-<h2 align="center">🍌 Gorilla 🍌</h2>
+<h2 align="center">🦍 Gorilla 🦍</h2>
 <h3 align="center">Stop monkeying around and write better scripts</h3>
 
 <p align="center">
@@ -6,7 +6,7 @@
     🙈 🙉 🙊
   </span><br/>
   <em>
-    GreaseMonkey · TamperMonkey
+    🍌 GreaseMonkey · TamperMonkey 🍌
   </em>
 </p>
 
