@@ -74,7 +74,7 @@ hello('world');
 
 ### Options
 
-#### Input (`--help)
+#### Help (`--help`)
 
 Display help menu.
 
