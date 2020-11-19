@@ -30,6 +30,8 @@ Gorilla is a blazing fast, TypeScript build tool for creating better
 GreaseMonkey scripts. It handles the complex build chain, so you don't
 have to.
 
+## Get started
+
 ### Input
 
 `helper.ts`
@@ -86,9 +88,13 @@ var hello = function (name) {
 hello('world');
 ```
 
-### Options
+## Samples
 
-#### Help (`--help`)
+You can find a [collection of samples, here](https://github.com/apsking/gorilla-samples).
+
+## Options
+
+### Help (`--help`)
 
 Display help menu.
 
@@ -98,7 +104,7 @@ eg.
 gorilla --help
 ```
 
-#### Input (`--input, -i`)
+### Input (`--input, -i`)
 
 The input handler for your script.
 
@@ -108,7 +114,7 @@ eg.
 gorilla --input ./my-input-file.ts ...
 ```
 
-#### Output (`--output, -o`)
+### Output (`--output, -o`)
 
 The input handler for your script.
 
@@ -120,7 +126,7 @@ eg.
 gorilla --output ./my-script.user.js ...
 ```
 
-#### Config (`--config, -c`)
+### Config (`--config, -c`)
 
 JSON input Gorilla config including GreaseMonkey metablock data.
 
@@ -130,7 +136,7 @@ eg.
 gorilla --config ./my-config.json ...
 ```
 
-### Config
+## Config
 
 The config is based off of the officially supported MetaBlock items found here: https://wiki.greasespot.net/Metadata_Block
 
