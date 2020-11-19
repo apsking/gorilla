@@ -37,7 +37,7 @@ const getBanner = (config) => {
     )
     .flatMap((i) => i);
   const scriptLines = items
-    .map(({ key, value }) => `// @${key}    ${value}`)
+    .map(({ key, value }) => `// @${key}${value ? `   ${value}` : ""}`)
     .join("\n");
   return `
 // ==UserScript==
@@ -47,40 +47,39 @@ ${scriptLines}
 `;
 };
 
+const HELP_MENU = `
+  Usage
+    $ gorilla
+
+  Options
+ --config, -c  Custom GreaseMonkey config
+ --input, -i  (required) Input filename
+    --output, -o  (required) Output filename
+
+  Examples
+    $ gorilla --input ./my-script.ts --output ./my-script.user.js
+`;
+
 const typescript = require("rollup-plugin-typescript");
 //Use Meow for arg parsing and validation
-const cli = meow__default["default"](
-  `
-	Usage
-	  $ gorilla
-
-	Options
-   --config, -c  Include a config
-   --input, -i  (required) Main input handler filename
-	  --output, -o  (required) Output filename
-
-	Examples
-	  $ gorilla --input ./my-script.ts --output ./my-script.user.js
-`,
-  {
-    flags: {
-      config: {
-        type: "string",
-        alias: "c",
-      },
-      input: {
-        type: "string",
-        alias: "i",
-        isRequired: true,
-      },
-      output: {
-        type: "string",
-        alias: "o",
-        isRequired: true,
-      },
+const cli = meow__default["default"](HELP_MENU, {
+  flags: {
+    config: {
+      type: "string",
+      alias: "c",
     },
-  }
-);
+    input: {
+      type: "string",
+      alias: "i",
+      isRequired: true,
+    },
+    output: {
+      type: "string",
+      alias: "o",
+      isRequired: true,
+    },
+  },
+});
 const { config, output, input } = cli.flags;
 //Provide warning on ouput
 if (!output.includes("user.js")) {

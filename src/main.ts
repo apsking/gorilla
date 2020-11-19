@@ -2,41 +2,29 @@ import meow from "meow";
 import * as fs from "fs";
 import { rollup } from "rollup";
 import getBanner, { DEFAULT_CONFIG } from "./banner";
+import { HELP_MENU } from "./constants";
+
 const typescript = require("rollup-plugin-typescript");
 
 //Use Meow for arg parsing and validation
-const cli = meow(
-  `
-	Usage
-	  $ gorilla
-
-	Options
-   --config, -c  Custom GreaseMonkey config
-   --input, -i  (required) Input filename
-	  --output, -o  (required) Output filename
-
-	Examples
-	  $ gorilla --input ./my-script.ts --output ./my-script.user.js
-`,
-  {
-    flags: {
-      config: {
-        type: "string",
-        alias: "c",
-      },
-      input: {
-        type: "string",
-        alias: "i",
-        isRequired: true,
-      },
-      output: {
-        type: "string",
-        alias: "o",
-        isRequired: true,
-      },
+const cli = meow(HELP_MENU, {
+  flags: {
+    config: {
+      type: "string",
+      alias: "c",
     },
-  }
-);
+    input: {
+      type: "string",
+      alias: "i",
+      isRequired: true,
+    },
+    output: {
+      type: "string",
+      alias: "o",
+      isRequired: true,
+    },
+  },
+});
 
 const { config, output, input } = cli.flags;
 
