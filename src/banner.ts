@@ -32,14 +32,9 @@ export const DEFAULT_CONFIG = {
 const getBanner = (config:GorillaConfig):string => {
     const items = Object.keys(config)
         .map(key => ({key, value: config[key]}))
-        .map((item) => {
-            if (Array.isArray(item.value)) {
-                return item.value
-                    .map(inner => ({ key: item.key, value: inner }))
-            } else {
-                return item
-            }
-        })
+        .map((item) => Array.isArray(item.value) ?
+            item.value.map(inner => ({ key: item.key, value: inner })) :
+            item)
         .flatMap(i => i);
 
     const scriptLines = items
