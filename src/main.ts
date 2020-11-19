@@ -49,6 +49,7 @@ const rollupConfig = {
   output: {
     file: output,
     banner: banner,
+    format: "iife",
   },
   plugins: [typescript()],
 };
