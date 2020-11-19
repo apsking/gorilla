@@ -1,13 +1,11 @@
 // Rollup config for CLI package
-import typescript from 'rollup-plugin-typescript';
+import typescript from "rollup-plugin-typescript";
 export default {
-  input: 'src/main.ts',
+  input: "src/main.ts",
   output: {
-    file: 'dist/cli.js',
-    format: 'cjs',
-    banner: "#!/usr/bin/env node" //Required for node commands
+    file: "dist/cli.js",
+    format: "cjs",
+    banner: "#!/usr/bin/env node", //Required for node commands
   },
-  plugins: [
-    typescript(),
-  ]
-}
+  plugins: [typescript()],
+};

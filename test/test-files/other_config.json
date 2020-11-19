@@ -1,12 +1,12 @@
 {
-    "name": "Other SCRIPT",
-    "namespace": "http://tampermonkey.net/",
-    "version": "0.1",
-    "description": "Gorilla-built, rock-solid, Monkey script",
-    "updateURL": "",
-    "downloadURL": "",
-    "author": "You",
-    "include": [],
-    "match": ["http://*/*"],
-    "grant": []
+  "name": "Other SCRIPT",
+  "namespace": "http://tampermonkey.net/",
+  "version": "0.1",
+  "description": "Gorilla-built, rock-solid, Monkey script",
+  "updateURL": "",
+  "downloadURL": "",
+  "author": "You",
+  "include": [],
+  "match": ["http://*/*"],
+  "grant": []
 }
