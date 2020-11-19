@@ -26,6 +26,24 @@ have to.
 ...
 ```
 
+`helper.ts`
+
+<!-- prettier-ignore -->
+```js
+export const hello = (name:string) => {
+    console.log(`Hello ${name}!`);
+}
+```
+
+`main.ts`
+
+<!-- prettier-ignore -->
+```js
+import { hello } from './helper';
+
+hello('world');
+```
+
 ### Output
 
 `script.user.js`
@@ -44,5 +62,9 @@ have to.
 // Created with love using Gorilla
 // ==/UserScript==
 
-console.log('hello!');
+var hello = function (name) {
+    console.log("Hello " + name + "!");
+};
+
+hello('world');
 ```
