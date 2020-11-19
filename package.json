@@ -1,6 +1,6 @@
 {
-  "name": "@apsking/gorilla",
-  "version": "0.0.1",
+  "name": "@aps.king/gorilla",
+  "version": "0.1.0",
   "description": "Gorilla: Stop monkeying around and build better scripts.",
   "bin": {
     "gorilla": "dist/cli.js"
