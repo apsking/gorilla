@@ -1,7 +1,10 @@
-<h2 align="center">Gorilla</h2>
+<h2 align="center">🍌 Gorilla 🍌</h2>
 <h3 align="center">Stop monkeying around and write better scripts</h3>
 
 <p align="center">
+  <span>
+    🙈 🙉 🙊
+  </span><br/>
   <em>
     GreaseMonkey · TamperMonkey
   </em>
@@ -14,17 +17,6 @@ GreaseMonkey scripts. It handles the complex build chain, so you don't
 have to.
 
 ### Input
-
-`package.json`
-
-<!-- prettier-ignore -->
-```js
-...
-"scripts": {
-    "build": "gorilla --input ./main.ts --output ./script.user.js"
-  },
-...
-```
 
 `helper.ts`
 
@@ -42,6 +34,17 @@ export const hello = (name:string) => {
 import { hello } from './helper';
 
 hello('world');
+```
+
+`package.json`
+
+<!-- prettier-ignore -->
+```js
+...
+"scripts": {
+    "build": "gorilla --input ./main.ts --output ./script.user.js"
+  },
+...
 ```
 
 ### Output
@@ -68,3 +71,68 @@ var hello = function (name) {
 
 hello('world');
 ```
+
+### Options
+
+#### Input (`--help)
+
+Display help menu.
+
+eg.
+
+```
+gorilla --help
+```
+
+#### Input (`--input, -i`)
+
+The input handler for your script.
+
+eg.
+
+```
+gorilla --input ./my-input-file.ts ...
+```
+
+#### Output (`--output, -o`)
+
+The input handler for your script.
+
+**Note:** While not required, GreaseMonkey scripts should end with `.user.js`.
+
+eg.
+
+```
+gorilla --output ./my-script.user.js ...
+```
+
+#### Config (`--config, -c`)
+
+JSON input Gorilla config including GreaseMonkey metablock data.
+
+eg.
+
+```
+gorilla --config ./my-config.json ...
+
+```
+
+### Config
+
+The config is based off of the officially supported MetaBlock items found here: https://wiki.greasespot.net/Metadata_Block
+
+The following JSON keys are supported:
+
+- `author` - (`string`) - Author of the script
+- `description` - (`string`) - Description of the script
+- `exclude` - (`string[]`) - URLs to exclude the script from
+- `grant` - (`string[]`) - Permissions to grant to the script
+- `icon` - (`string`) - Icon for the script
+- `include` - (`string[]`) - URLs to include the script in
+- `match` - (`string[]`) - URLs to match the script in
+- `name` - (`string`) - Name of the script
+- `namespace` - (`string`) - Namespace of the script
+- `noframes` - (`string`) - Whether or not to run in frames
+- `require` - (`string[]`) - Scripts to include within the script
+- `resource` - (`string[]`) - Resources to include within the script
+- `version` - (`string`) - Version number of the script
