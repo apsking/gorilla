@@ -9,6 +9,18 @@ function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'defau
 
 var meow__default = /*#__PURE__*/_interopDefaultLegacy(meow);
 
+const DEFAULT_CONFIG = {
+    "name": "New Userscript",
+    "namespace": "http://tampermonkey.net/",
+    "version": "0.1",
+    "description": "Gorilla-built, rock-solid, Monkey script",
+    "updateURL": "",
+    "downloadURL": "",
+    "author": "You",
+    "include": [],
+    "match": ["http://*/*"],
+    "grant": []
+};
 const getBanner = (config) => {
     const items = Object.keys(config)
         .map(key => ({ key, value: config[key] }))
@@ -66,8 +78,9 @@ const cli = meow__default['default'](`
 });
 const { config, output, input } = cli.flags;
 // Default to config, if not provided
-const configFile = config && config !== "" ? config : 'config/default_config.json';
-const configJSON = JSON.parse(fs.readFileSync(configFile, 'utf8'));
+const configJSON = config && config !== "" ?
+    JSON.parse(fs.readFileSync(config, 'utf8')) :
+    DEFAULT_CONFIG;
 // Create banner text from config
 const banner = getBanner(configJSON);
 const rollupConfig = {

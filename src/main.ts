@@ -1,7 +1,7 @@
 import meow from 'meow';
 import * as fs from 'fs';
 import { rollup } from 'rollup';
-import getBanner from './banner';
+import getBanner, { DEFAULT_CONFIG } from './banner';
 const typescript = require('rollup-plugin-typescript');
 
 //Use Meow for arg parsing and validation
@@ -38,9 +38,10 @@ const cli = meow(`
 const { config, output, input } = cli.flags;
 
 // Default to config, if not provided
-const configFile = config && config !== "" ? config : 'config/default_config.json';
+const configJSON = config && config !== "" ?
+	JSON.parse(fs.readFileSync(config, 'utf8')) :
+	DEFAULT_CONFIG;
 
-const configJSON = JSON.parse(fs.readFileSync(configFile, 'utf8'));
 
 // Create banner text from config
 const banner = getBanner(configJSON);

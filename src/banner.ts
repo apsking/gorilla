@@ -16,6 +16,19 @@ type GorillaConfig = {
     version?: string,
     [key:string]: undefined|string|string[], //needed for lookup
 }
+
+export const DEFAULT_CONFIG = {
+    "name": "New Userscript",
+    "namespace": "http://tampermonkey.net/",
+    "version": "0.1",
+    "description": "Gorilla-built, rock-solid, Monkey script",
+    "updateURL": "",
+    "downloadURL": "",
+    "author": "You",
+    "include": [],
+    "match": ["http://*/*"],
+    "grant": []
+}
 const getBanner = (config:GorillaConfig):string => {
     const items = Object.keys(config)
         .map(key => ({key, value: config[key]}))
