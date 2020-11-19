@@ -47,7 +47,7 @@ const getBanner = (config: GorillaConfig): string => {
     .flatMap((i) => i);
 
   const scriptLines = items
-    .map(({ key, value }) => `// @${key}    ${value}`)
+    .map(({ key, value }) => `// @${key}${value ? `   ${value}` : ""}`)
     .join("\n");
   return `
 // ==UserScript==
