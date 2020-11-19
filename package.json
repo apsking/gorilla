@@ -6,7 +6,6 @@
     "gorilla": "dist/cli.js"
   },
   "scripts": {
-    "cli": "gorilla --config ./test/test-files/other_config.json --output ./dist/testOutput.js --input ./test/test-files/testJS.ts",
     "build": "rollup --config"
   },
   "author": "Alex King",

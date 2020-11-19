@@ -2,7 +2,7 @@ import meow from 'meow';
 import * as fs from 'fs';
 import { rollup } from 'rollup';
 import getBanner from './banner';
-const typescript:Function = require('rollup-plugin-typescript');
+const typescript = require('rollup-plugin-typescript');
 
 //Use Meow for arg parsing and validation
 const cli = meow(`
