@@ -10,6 +10,16 @@
   </em>
 </p>
 
+<p align="center">
+<br/>
+  <a href="https://www.npmjs.com/package/prettier">
+    <img alt="npm version" src="https://img.shields.io/npm/v/prettier.svg?style=flat-square">
+  </a>
+  <a href="#badge">
+    <img alt="code style: prettier" src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square">
+</a>
+</p>
+
 ## Intro
 
 Gorilla is a blazing fast, TypeScript build tool for creating better
