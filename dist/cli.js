@@ -55,9 +55,9 @@ const cli = meow__default["default"](
 	  $ gorilla
 
 	Options
-      --config, -c  Include a config
-      --input, -i  Main input handler filename
-	  --output, -c  Output filename
+   --config, -c  Include a config
+   --input, -i  (required) Main input handler filename
+	  --output, -o  (required) Output filename
 
 	Examples
 	  $ gorilla --input ./my-script.ts --output ./my-script.user.js

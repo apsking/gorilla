@@ -11,9 +11,9 @@ const cli = meow(
 	  $ gorilla
 
 	Options
-      --config, -c  Include a config
-      --input, -i  Main input handler filename
-	  --output, -c  Output filename
+   --config, -c  Custom GreaseMonkey config
+   --input, -i  (required) Input filename
+	  --output, -o  (required) Output filename
 
 	Examples
 	  $ gorilla --input ./my-script.ts --output ./my-script.user.js
