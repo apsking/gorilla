@@ -1,10 +1,10 @@
+const typescript = require("rollup-plugin-typescript");
 import meow from "meow";
 import * as fs from "fs";
 import { rollup, RollupOptions, OutputOptions } from "rollup";
+import { nodeResolve } from "@rollup/plugin-node-resolve";
 import getBanner, { DEFAULT_CONFIG } from "./banner";
 import { HELP_MENU } from "./constants";
-
-const typescript = require("rollup-plugin-typescript");
 
 //Use Meow for arg parsing and validation
 const cli = meow(HELP_MENU, {
@@ -52,7 +52,7 @@ const outputConfig: OutputOptions = {
 const rollupConfig: RollupOptions = {
   input,
   output: outputConfig,
-  plugins: [typescript()],
+  plugins: [typescript(), nodeResolve()],
 };
 
 // Call rollup

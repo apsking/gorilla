@@ -4,6 +4,7 @@
 var meow = require("meow");
 var fs = require("fs");
 var rollup = require("rollup");
+var pluginNodeResolve = require("@rollup/plugin-node-resolve");
 
 function _interopDefaultLegacy(e) {
   return e && typeof e === "object" && "default" in e ? e : { default: e };
@@ -102,7 +103,7 @@ const outputConfig = {
 const rollupConfig = {
   input,
   output: outputConfig,
-  plugins: [typescript()],
+  plugins: [typescript(), pluginNodeResolve.nodeResolve()],
 };
 // Call rollup
 rollup
