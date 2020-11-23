@@ -1,6 +1,6 @@
 import meow from "meow";
 import * as fs from "fs";
-import { rollup } from "rollup";
+import { rollup, RollupOptions, OutputOptions } from "rollup";
 import getBanner, { DEFAULT_CONFIG } from "./banner";
 import { HELP_MENU } from "./constants";
 
@@ -44,20 +44,21 @@ const configJSON =
 // Create banner text from config
 const banner = getBanner(configJSON);
 
-const rollupConfig = {
+const outputConfig: OutputOptions = {
+  file: output,
+  banner: banner,
+  format: "iife",
+};
+const rollupConfig: RollupOptions = {
   input,
-  output: {
-    file: output,
-    banner: banner,
-    format: "iife",
-  },
+  output: outputConfig,
   plugins: [typescript()],
 };
 
 // Call rollup
 rollup(rollupConfig)
   .then(async (bundle) => {
-    await bundle.generate(rollupConfig.output);
-    return await bundle.write(rollupConfig.output);
+    await bundle.generate(outputConfig);
+    return await bundle.write(outputConfig);
   })
   .then(() => console.log("Gorilla smash complete!"));

@@ -94,19 +94,21 @@ const configJSON =
     : DEFAULT_CONFIG;
 // Create banner text from config
 const banner = getBanner(configJSON);
+const outputConfig = {
+  file: output,
+  banner: banner,
+  format: "iife",
+};
 const rollupConfig = {
   input,
-  output: {
-    file: output,
-    banner: banner,
-  },
+  output: outputConfig,
   plugins: [typescript()],
 };
 // Call rollup
 rollup
   .rollup(rollupConfig)
   .then(async (bundle) => {
-    await bundle.generate(rollupConfig.output);
-    return await bundle.write(rollupConfig.output);
+    await bundle.generate(outputConfig);
+    return await bundle.write(outputConfig);
   })
   .then(() => console.log("Gorilla smash complete!"));
