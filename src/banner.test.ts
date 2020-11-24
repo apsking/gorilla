@@ -1,4 +1,5 @@
-import getBanner, { DEFAULT_CONFIG } from "./banner";
+import getBanner from "./banner";
+import { DEFAULT_CONFIG } from "./constants";
 
 test("handles empty config", () => {
   const config = {};

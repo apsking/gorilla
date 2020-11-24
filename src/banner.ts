@@ -1,5 +1,5 @@
 /*
- * Attributes for all MetaBlock items:
+ * Attributes for all Metadata Block items:
  * https://wiki.greasespot.net/Metadata_Block
  */
 type GorillaConfig = {
@@ -17,17 +17,6 @@ type GorillaConfig = {
   resource?: string[];
   version?: string;
   [key: string]: undefined | string | string[]; //needed for lookup
-};
-
-export const DEFAULT_CONFIG = {
-  name: "New Userscript",
-  namespace: "http://tampermonkey.net/",
-  version: "0.1",
-  description: "Gorilla-built, rock-solid, Monkey script",
-  updateURL: "",
-  downloadURL: "",
-  author: "You",
-  include: ["https://**"],
 };
 
 /*

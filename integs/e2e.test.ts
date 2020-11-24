@@ -1,5 +1,6 @@
 const { exec } = require("child_process");
 import * as fs from "fs";
+import { ERROR_MSG, WARN_MSG } from "../src/constants";
 
 // Remove all temp files before each run
 beforeEach(() => {
@@ -34,14 +35,36 @@ test("should throw error on unknown file", () => {
   });
 });
 
+test("should throw error on bad config JSON filetype", () => {
+  return new Promise((resolve) => {
+    exec(
+      "gorilla --input ./integs/test-files/not_a_file.ts --output ./integs/tmp/out.js --config ./integs/test-files/not_a_config",
+      (_: string, __: string, stderr: string) => {
+        expect(stderr).toContain(ERROR_MSG.EXPECT_JSON_FILE);
+        resolve();
+      }
+    );
+  });
+});
+
 test("should show warning for output filename", () => {
   return new Promise((resolve) => {
     exec(
       "gorilla --input ./integs/test-files/test_main.ts --output ./integs/tmp/out.js",
       (_: string, __: string, stderr: string) => {
-        expect(stderr).toContain(
-          "reaseMonkey scripts must end in '.user.js'. Consider renaming your output file."
-        );
+        expect(stderr).toContain(WARN_MSG.EXPECT_GM_EXTENSION);
+        resolve();
+      }
+    );
+  });
+});
+
+test("should show warning for non-TypeScript input", () => {
+  return new Promise((resolve) => {
+    exec(
+      "gorilla --input ./integs/test-files/test_main.ts --output ./integs/tmp/out.js",
+      (_: string, __: string, stderr: string) => {
+        expect(stderr).toContain(WARN_MSG.EXPECT_TYPESCRIPT);
         resolve();
       }
     );
