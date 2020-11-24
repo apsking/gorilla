@@ -12,7 +12,7 @@ beforeEach(() => {
 
 test("should show help menu", () => {
   return new Promise((resolve) => {
-    exec("gorilla --help", (_: any, stdout: any) => {
+    exec("gorilla --help", (_: string, stdout: string) => {
       expect(stdout).toContain(
         "Gorilla: Stop monkeying around and build better scripts."
       );
@@ -26,7 +26,7 @@ test("should throw error on unknown file", () => {
   return new Promise((resolve) => {
     exec(
       "gorilla --input ./integs/test-files/not_a_file.ts --output ./integs/tmp/out.js",
-      (err: any, stdout: any, stderr: any) => {
+      (_: string, __: string, stderr: string) => {
         expect(stderr).toContain("Could not resolve entry module");
         resolve();
       }
@@ -38,7 +38,7 @@ test("should show warning for output filename", () => {
   return new Promise((resolve) => {
     exec(
       "gorilla --input ./integs/test-files/test_main.ts --output ./integs/tmp/out.js",
-      (err: any, stdout: any, stderr: any) => {
+      (_: string, __: string, stderr: string) => {
         expect(stderr).toContain(
           "reaseMonkey scripts must end in '.user.js'. Consider renaming your output file."
         );
@@ -52,7 +52,7 @@ test("should create script with default config", () => {
   return new Promise((resolve) => {
     exec(
       "gorilla --input ./integs/test-files/test_main.ts --output ./integs/tmp/out.js",
-      (err: any, stdout: any, stderr: any) => {
+      () => {
         resolve();
       }
     );
@@ -66,7 +66,7 @@ test("should create script with custom config", () => {
   return new Promise((resolve) => {
     exec(
       "gorilla --config ./integs/test-files/other_config.json --input ./integs/test-files/test_main.ts --output ./integs/tmp/out.js",
-      (err: any, stdout: any, stderr: any) => {
+      () => {
         resolve();
       }
     );
