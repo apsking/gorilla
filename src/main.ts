@@ -1,7 +1,7 @@
-const typescript = require("rollup-plugin-typescript");
 import * as fs from "fs";
 import { rollup, RollupOptions, OutputOptions } from "rollup";
 import { nodeResolve } from "@rollup/plugin-node-resolve";
+import typescript from "@rollup/plugin-typescript";
 import getBanner from "./banner";
 import { DEFAULT_CONFIG } from "./constants";
 import validate from "./validate";
