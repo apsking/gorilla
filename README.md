@@ -136,7 +136,7 @@ gorilla --output ./my-script.user.js ...
 
 ### Config (`--config, -c`)
 
-JSON input Gorilla config including GreaseMonkey metablock data.
+JSON input Gorilla config including GreaseMonkey metadata block data.
 
 eg.
 
