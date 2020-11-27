@@ -24,6 +24,7 @@ export const DEFAULT_CONFIG = {
 
 export const ERROR_MSG = {
   EXPECT_JSON_FILE: "Gorilla configs must be a JSON file",
+  EXPECT_VALID_KEY: "Invalid gorilla config key(s):",
 };
 
 export const WARN_MSG = {

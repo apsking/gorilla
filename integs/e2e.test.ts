@@ -47,6 +47,18 @@ test("should throw error on bad config JSON filetype", () => {
   });
 });
 
+test("should throw error on bad gorilla config key", () => {
+  return new Promise((resolve) => {
+    exec(
+      "gorilla --input ./integs/test-files/test_main.ts --output ./integs/tmp/out.js --config ./integs/test-files/invalid_config.json",
+      (_: string, __: string, stderr: string) => {
+        expect(stderr).toContain(ERROR_MSG.EXPECT_VALID_KEY);
+        resolve();
+      }
+    );
+  });
+});
+
 test("should show warning for output filename", () => {
   return new Promise((resolve) => {
     exec(
@@ -62,7 +74,7 @@ test("should show warning for output filename", () => {
 test("should show warning for non-TypeScript input", () => {
   return new Promise((resolve) => {
     exec(
-      "gorilla --input ./integs/test-files/test_main.ts --output ./integs/tmp/out.js",
+      "gorilla --input ./integs/test-files/test_main.js --output ./integs/tmp/out.js",
       (_: string, __: string, stderr: string) => {
         expect(stderr).toContain(WARN_MSG.EXPECT_TYPESCRIPT);
         resolve();

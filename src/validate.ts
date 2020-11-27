@@ -29,7 +29,7 @@ const validate = () => {
     throw ERROR_MSG.EXPECT_JSON_FILE;
   }
 
-  if (input.endsWith(".ts")) {
+  if (!input.endsWith(".ts")) {
     console.warn(WARN_MSG.EXPECT_TYPESCRIPT);
   }
 

@@ -10,32 +10,6 @@ function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'defau
 
 var meow__default = /*#__PURE__*/_interopDefaultLegacy(meow);
 
-/*
- * Fetch a GreaseMonkey-formatted banner text, which will
- * prepend the script itself.
- */
-const getBanner = (config) => {
-    const items = Object.keys(config)
-        .map((key) => ({ key, value: config[key] }))
-        .map((item) => Array.isArray(item.value)
-        ? item.value.map((inner) => ({ key: item.key, value: inner }))
-        : item)
-        .flatMap((i) => i);
-    const scriptLines = items
-        .map(({ key, value }) => {
-        const tabs = key.length < 8 ? "\t\t\t" : "\t\t";
-        return `// @${key}${value ? `${tabs}${value}` : ""}`;
-    })
-        .join("\n");
-    return `
-// ==UserScript==
-${scriptLines}
-//
-// Created with love using Gorilla
-// ==/UserScript==
-`;
-};
-
 const HELP_MENU = `
   Usage
     $ gorilla
@@ -60,10 +34,60 @@ const DEFAULT_CONFIG = {
 };
 const ERROR_MSG = {
     EXPECT_JSON_FILE: "Gorilla configs must be a JSON file",
+    EXPECT_VALID_KEY: "Invalid gorilla config key(s):",
 };
 const WARN_MSG = {
     EXPECT_TYPESCRIPT: "Gorilla recommends that your input files be written in TypeScript",
     EXPECT_GM_EXTENSION: "GreaseMonkey scripts must end in '.user.js'. Consider renaming your output file.",
+};
+
+const VALID_KEYS = [
+    'author',
+    'description',
+    'exclude',
+    'grant',
+    'icon',
+    'include',
+    'match',
+    'name',
+    'namespace',
+    'noframes',
+    'require',
+    'resource',
+    'version',
+    'updateURL',
+    'downloadURL'
+];
+/*
+ * Fetch a GreaseMonkey-formatted banner text, which will
+ * prepend the script itself.
+ */
+const getBanner = (config) => {
+    const invalidItems = Object.keys(config)
+        .filter(key => !VALID_KEYS.includes(key));
+    if (invalidItems.length > 0) {
+        const msg = `${ERROR_MSG.EXPECT_VALID_KEY} ${invalidItems.join(', ')}`;
+        throw msg;
+    }
+    const items = Object.keys(config)
+        .map((key) => ({ key, value: config[key] }))
+        .map((item) => Array.isArray(item.value)
+        ? item.value.map((inner) => ({ key: item.key, value: inner }))
+        : item)
+        .flatMap((i) => i);
+    const scriptLines = items
+        .map(({ key, value }) => {
+        const tabs = key.length < 8 ? "\t\t\t" : "\t\t";
+        return `// @${key}${value ? `${tabs}${value}` : ""}`;
+    })
+        .join("\n");
+    return `
+// ==UserScript==
+${scriptLines}
+//
+// Created with love using Gorilla
+// ==/UserScript==
+`;
 };
 
 const validate = () => {
@@ -91,7 +115,7 @@ const validate = () => {
     if (config && !config.endsWith(".json")) {
         throw ERROR_MSG.EXPECT_JSON_FILE;
     }
-    if (input.endsWith(".ts")) {
+    if (!input.endsWith(".ts")) {
         console.warn(WARN_MSG.EXPECT_TYPESCRIPT);
     }
     //Provide warning on ouput
