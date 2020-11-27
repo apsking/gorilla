@@ -52,5 +52,9 @@
   },
   "lint-staged": {
     "*.{ts,js,css,md}": "prettier --write"
-  }
+  },
+  "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/integs/tmp/**"
+    ]
 }
