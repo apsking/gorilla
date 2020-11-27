@@ -33,7 +33,7 @@ const validate = () => {
     console.warn(WARN_MSG.EXPECT_TYPESCRIPT);
   }
 
-  //Provide warning on ouput
+  //Provide warning on output
   if (!output.endsWith("user.js")) {
     console.warn(WARN_MSG.EXPECT_GM_EXTENSION);
   }
