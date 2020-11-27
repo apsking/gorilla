@@ -70,22 +70,28 @@ hello('world');
 <!-- prettier-ignore -->
 ```js
 // ==UserScript==
-// @name    New Userscript
-// @namespace    http://tampermonkey.net/
-// @version    0.1
+// @name            New Userscript
+// @namespace       http://tampermonkey.net/
+// @version         0.1
 // @description    Gorilla-built, rock-solid, Monkey script
-// @updateURL    
-// @downloadURL    
-// @author    You
-// @match    http://*/*
+// @updateURL
+// @downloadURL
+// @author          You
+// @include         https://**
+//
 // Created with love using Gorilla
 // ==/UserScript==
 
-var hello = function (name) {
-    console.log("Hello " + name + "!");
-};
+(function () {
+  'use strict';
 
-hello('world');
+  function greet(name) {
+      console.log(`Hello, ${name}!`);
+  }
+
+  greet("This is a greeting");
+
+}());
 ```
 
 ## Samples
@@ -107,6 +113,8 @@ gorilla --help
 ### Input (`--input, -i`)
 
 The input handler for your script.
+
+**Note:** While not required, Gorilla recommends writing your scripts in `TypeScript`.
 
 eg.
 
@@ -138,7 +146,7 @@ gorilla --config ./my-config.json ...
 
 ## Config
 
-The config is based off of the officially supported MetaBlock items found here: https://wiki.greasespot.net/Metadata_Block
+The config is based off of the officially supported Metadata Block items found here: https://wiki.greasespot.net/Metadata_Block
 
 The following JSON keys are supported:
 
@@ -155,20 +163,20 @@ The following JSON keys are supported:
 - `require` - (`string[]`) - Scripts to include within the script
 - `resource` - (`string[]`) - Resources to include within the script
 - `version` - (`string`) - Version number of the script
+- `updateURL` - (`string`) - URL location for script updates
+- `downloadURL` - (`string`) - URL location for script download
 
 If no config is supplied, the following default config is used:
 
 ```
 {
-  "name": "New Userscript",
-  "namespace": "http://tampermonkey.net/",
-  "version": "0.1",
-  "description": "Gorilla-built, rock-solid, Monkey script",
-  "updateURL": "",
-  "downloadURL": "",
-  "author": "You",
-  "include": [],
-  "match": ["http://*/*"],
-  "grant": [],
+  name: "New Userscript",
+  namespace: "http://tampermonkey.net/",
+  version: "0.1",
+  description: "Gorilla-built, rock-solid, Monkey script",
+  updateURL: "",
+  downloadURL: "",
+  author: "You",
+  include: ["https://**"],
 }
 ```
