@@ -1,6 +1,6 @@
 {
   "name": "gorilla-build",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "Gorilla: Stop monkeying around and build better scripts.",
   "bin": {
     "gorilla": "dist/cli.js"
