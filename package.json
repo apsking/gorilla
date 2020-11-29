@@ -8,6 +8,7 @@
   "scripts": {
     "build": "rollup --config",
     "test": "npx jest",
+    "test:c": "npx jest --coverage",
     "test:w": "npx jest --watchAll"
   },
   "author": "Alex King",

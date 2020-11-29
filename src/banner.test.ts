@@ -1,5 +1,5 @@
 import getBanner from "./banner";
-import { DEFAULT_CONFIG } from "./constants";
+import { DEFAULT_CONFIG, ERROR_MSG } from "./constants";
 
 test("handles empty config", () => {
   const config = {};
@@ -30,4 +30,16 @@ test("handles default config", () => {
 // Created with love using Gorilla
 // ==/UserScript==
 `);
+});
+
+test("handles invalid config key", () => {
+  const config = {
+    invalid: "key",
+  };
+
+  try {
+    getBanner(config);
+  } catch (err) {
+    expect(err).toContain(ERROR_MSG.EXPECT_VALID_KEY);
+  }
 });
