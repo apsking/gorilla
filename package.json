@@ -37,9 +37,15 @@
     "url": "git+https://github.com/apsking/gorilla.git"
   },
   "keywords": [
-    "GreaseMonkey",
-    "TamperMonkey",
-    "Script"
+    "greasemonkey",
+    "tampermonkey",
+    "violentmonkey",
+    "script",
+    "userscript",
+    "typescript",
+    "build",
+    "tool-chain",
+    "cli"
   ],
   "bugs": {
     "url": "https://github.com/apsking/gorilla/issues"
