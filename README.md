@@ -20,7 +20,7 @@
     <img alt="npm version" src="https://img.shields.io/npm/v/gorilla-build.svg?style=flat-square">
   </a>
   <img alt="code style: prettier" src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square">
-  <img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/apsking/gorilla/Node.js%20CI?style=flat-square">
+  <a href="https://github.com/apsking/gorilla/actions?query=workflow%3A%22Node.js+CI%22"><img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/apsking/gorilla/Node.js%20CI?style=flat-square"></a>
   </br>
   </br>
   <a href="https://www.buymeacoffee.com/apsking">
