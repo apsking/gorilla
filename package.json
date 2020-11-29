@@ -11,8 +11,7 @@
     "test:c": "npx jest --coverage  ./src",
     "test:w": "npx jest --watchAll  ./src",
     "integ": "npx jest ./integs",
-    "integ:c": "npx jest --coverage./integs",
-    "integ:w": "npx jest --watchAll./integs"
+    "integ:w": "npx jest --watchAll ./integs"
   },
   "author": "Alex King",
   "license": "MIT",
