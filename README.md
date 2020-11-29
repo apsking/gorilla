@@ -14,14 +14,19 @@
   <a href="https://twitter.com/acdlite/status/974390255393505280">
     <img alt="Blazing Fast" src="https://img.shields.io/badge/speed-blazing%20%F0%9F%94%A5-brightgreen.svg?style=flat-square">
     </a>
-    <img src="https://img.shields.io/github/repo-size/apsking/gorilla"></a>
+    <img src="https://img.shields.io/github/repo-size/apsking/gorilla?style=flat-square"></a>
   <br/>
-  <a href="https://www.npmjs.com/package/prettier">
+  <a href="https://www.npmjs.com/package/gorilla-build">
     <img alt="npm version" src="https://img.shields.io/npm/v/gorilla-build.svg?style=flat-square">
   </a>
   <a href="#badge">
     <img alt="code style: prettier" src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square">
-</a>
+  </a>
+  </br>
+  </br>
+  <a href="https://www.buymeacoffee.com/apsking">
+    <img alt="buy me a coffee" src="https://img.shields.io/badge/-Buy%20me%20a%20%E2%98%95-blue?style=flat-square"/>
+  </a>
 </p>
 
 ## Intro
