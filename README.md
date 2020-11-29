@@ -19,9 +19,8 @@
   <a href="https://www.npmjs.com/package/gorilla-build">
     <img alt="npm version" src="https://img.shields.io/npm/v/gorilla-build.svg?style=flat-square">
   </a>
-  <a href="#badge">
-    <img alt="code style: prettier" src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square">
-  </a>
+  <img alt="code style: prettier" src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square">
+  <img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/apsking/gorilla/Node.js%20CI?style=flat-square">
   </br>
   </br>
   <a href="https://www.buymeacoffee.com/apsking">
