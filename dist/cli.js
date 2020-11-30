@@ -42,31 +42,30 @@ const WARN_MSG = {
 };
 
 const VALID_KEYS = [
-    'author',
-    'description',
-    'exclude',
-    'grant',
-    'icon',
-    'include',
-    'match',
-    'name',
-    'namespace',
-    'noframes',
-    'require',
-    'resource',
-    'version',
-    'updateURL',
-    'downloadURL'
+    "author",
+    "description",
+    "exclude",
+    "grant",
+    "icon",
+    "include",
+    "match",
+    "name",
+    "namespace",
+    "noframes",
+    "require",
+    "resource",
+    "version",
+    "updateURL",
+    "downloadURL",
 ];
 /*
  * Fetch a GreaseMonkey-formatted banner text, which will
  * prepend the script itself.
  */
 const getBanner = (config) => {
-    const invalidItems = Object.keys(config)
-        .filter(key => !VALID_KEYS.includes(key));
+    const invalidItems = Object.keys(config).filter((key) => !VALID_KEYS.includes(key));
     if (invalidItems.length > 0) {
-        const msg = `${ERROR_MSG.EXPECT_VALID_KEY} ${invalidItems.join(', ')}`;
+        const msg = `${ERROR_MSG.EXPECT_VALID_KEY} ${invalidItems.join(", ")}`;
         throw msg;
     }
     const items = Object.keys(config)
@@ -118,7 +117,7 @@ const validate = () => {
     if (!input.endsWith(".ts")) {
         console.warn(WARN_MSG.EXPECT_TYPESCRIPT);
     }
-    //Provide warning on ouput
+    //Provide warning on output
     if (!output.endsWith("user.js")) {
         console.warn(WARN_MSG.EXPECT_GM_EXTENSION);
     }
