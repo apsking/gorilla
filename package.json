@@ -63,7 +63,7 @@
     "*.{ts,js,css,md}": "prettier --write"
   },
   "coveragePathIgnorePatterns": [
-      "/node_modules/",
-      "/integs/tmp/**"
-    ]
+    "/node_modules/",
+    "/integs/tmp/**"
+  ]
 }
