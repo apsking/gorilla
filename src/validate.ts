@@ -1,4 +1,4 @@
-import meow from "meow";
+import { meow } from "./meow";
 import { HELP_MENU, ERROR_MSG, WARN_MSG } from "./constants";
 
 const validate = () => {
