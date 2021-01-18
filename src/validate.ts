@@ -9,6 +9,11 @@ const validate = () => {
         type: "string",
         alias: "c",
       },
+      quiet: {
+        type: "boolean",
+        alias: "q",
+        default: false,
+      },
       input: {
         type: "string",
         alias: "i",
@@ -22,19 +27,19 @@ const validate = () => {
     },
   });
 
-  const { input, output, config } = cli.flags;
+  const { input, output, config, quiet } = cli.flags;
 
   // Validate expected filetypes
   if (config && !config.endsWith(".json")) {
     throw ERROR_MSG.EXPECT_JSON_FILE;
   }
 
-  if (!input.endsWith(".ts")) {
+  if (!quiet && !input.endsWith(".ts") && !quiet) {
     console.warn(WARN_MSG.EXPECT_TYPESCRIPT);
   }
 
   //Provide warning on output
-  if (!output.endsWith("user.js")) {
+  if (!quiet && !output.endsWith("user.js")) {
     console.warn(WARN_MSG.EXPECT_GM_EXTENSION);
   }
 

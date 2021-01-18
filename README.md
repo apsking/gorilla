@@ -148,6 +148,16 @@ eg.
 gorilla --config ./my-config.json ...
 ```
 
+### Quiet (`--quiet, -q`)
+
+Hide all warning messages.
+
+eg.
+
+```
+gorilla --quiet true ...
+```
+
 ## Config
 
 The config is based off of the officially supported Metadata Block items found here: https://wiki.greasespot.net/Metadata_Block

@@ -76,6 +76,26 @@ test("throws exception with invalid config", () => {
   }
 });
 
+test("validates quietly", () => {
+  stubMeow.returns({
+    flags: {
+      input: "test.js",
+      output: "test.other.extension",
+      quiet: true,
+    },
+    input: [],
+    unnormalizedFlags: {},
+    pkg: {},
+    help: "",
+    showHelp: () => {},
+    showVersion: () => {},
+  });
+
+  validate();
+
+  expect(spyConsole.called).toEqual(false);
+});
+
 test("validates output w/o any warnings", () => {
   stubMeow.returns({
     flags: {
