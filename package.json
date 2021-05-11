@@ -16,7 +16,7 @@
   "author": "Alex King",
   "license": "MIT",
   "dependencies": {
-    "meow": "^9.0.0",
+    "meow": "^10.0.0",
     "rollup": "^2.33.3",
     "rollup-plugin-typescript": "^1.0.1",
     "tslib": "^2.0.3",
