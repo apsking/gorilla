@@ -11,17 +11,18 @@
     "test:c": "npx jest --coverage  ./src",
     "test:w": "npx jest --watchAll  ./src",
     "integ": "npx jest ./integs",
-    "integ:w": "npx jest --watchAll ./integs"
+    "integ:w": "npx jest --watchAll ./integs",
+    "prepare": "husky install"
   },
   "author": "Alex King",
   "license": "MIT",
   "dependencies": {
+    "@rollup/plugin-node-resolve": "^13.0.0",
     "meow": "^9.0.0",
     "rollup": "^2.33.3",
     "rollup-plugin-typescript": "^1.0.1",
     "tslib": "^2.0.3",
-    "typescript": "^4.0.5",
-    "@rollup/plugin-node-resolve": "^13.0.0"
+    "typescript": "^4.0.5"
   },
   "devDependencies": {
     "@rollup/plugin-typescript": "^8.1.0",
@@ -56,11 +57,6 @@
     "url": "https://github.com/apsking/gorilla/issues"
   },
   "homepage": "https://github.com/apsking/gorilla#readme",
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "lint-staged": {
     "*.{ts,js,css,md}": "prettier --write"
   },
