@@ -138,10 +138,10 @@ export const getBanner = (
     })
     .join("\n");
   return `
-  // ==UserScript==
-  ${scriptLines}
-  //
-  // Created with love using Gorilla
-  // ==/UserScript==
-  `;
+// ==UserScript==
+${scriptLines}
+//
+// Created with love using Gorilla
+// ==/UserScript==
+`;
 };
