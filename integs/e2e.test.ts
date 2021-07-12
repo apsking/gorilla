@@ -45,11 +45,11 @@ test("should throw error on bad config JSON filetype", async () => {
   expect(stderr).toContain(ERROR_MSG.EXPECT_JSON_FILE);
 });
 
-test("should throw error on bad gorilla config key", async () => {
+test("should warn on bad gorilla config key", async () => {
   const { stderr } = await execPromise(
     "gorilla --input ./integs/test-files/test_main.ts --output ./integs/tmp/out.js --config ./integs/test-files/invalid_config.json"
   );
-  expect(stderr).toContain(ERROR_MSG.EXPECT_VALID_KEY);
+  expect(stderr).toContain(WARN_MSG.EXPECT_GM_KEYS);
 });
 
 test("should show warning for output filename", async () => {
@@ -66,12 +66,14 @@ test("should show warning for non-TypeScript input", async () => {
   expect(stderr).toContain(WARN_MSG.EXPECT_TYPESCRIPT);
 });
 
-test("should create script with default config", async () => {
+test("should create script with package.json info", async () => {
   await execPromise(
     "gorilla --input ./integs/test-files/test_main.ts --output ./integs/tmp/out.js"
   );
   const file = fs.readFileSync("./integs/tmp/out.js", "utf8");
-  expect(file).toContain("New Userscript"); //Just assert name of config
+  expect(file).toContain("gorilla-build");
+  expect(file).toContain("Alex King");
+  expect(file).toContain("MIT");
 });
 
 test("should create script with custom config", async () => {

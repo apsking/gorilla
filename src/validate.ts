@@ -34,7 +34,7 @@ const validate = () => {
     throw ERROR_MSG.EXPECT_JSON_FILE;
   }
 
-  if (!quiet && !input.endsWith(".ts") && !quiet) {
+  if (!quiet && !input.endsWith(".ts")) {
     console.warn(WARN_MSG.EXPECT_TYPESCRIPT);
   }
 

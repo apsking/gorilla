@@ -1,19 +1,14 @@
 const typescript = require("rollup-plugin-typescript");
-import * as fs from "fs";
 import { rollup, RollupOptions, OutputOptions } from "rollup";
 import { nodeResolve } from "@rollup/plugin-node-resolve";
-import getBanner from "./banner";
-import { DEFAULT_CONFIG } from "./constants";
 import validate from "./validate";
+import { getConfig, getBanner } from "./config";
 
 //Validate config input
-const { input, output, config } = validate();
+const { input, output, config, quiet } = validate();
 
-// Default to config, if not provided
-const configJSON =
-  config && config !== ""
-    ? JSON.parse(fs.readFileSync(config, "utf8"))
-    : DEFAULT_CONFIG;
+// Get config values
+const configJSON = getConfig(config);
 
 // Create banner text from config
 const banner = getBanner(configJSON);

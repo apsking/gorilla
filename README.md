@@ -162,7 +162,7 @@ gorilla --quiet true ...
 
 The config is based off of the officially supported Metadata Block items found here: https://wiki.greasespot.net/Metadata_Block
 
-The following JSON keys are supported:
+The following JSON keys are supported by GreaseMonkey:
 
 - `author` - (`string`) - Author of the script
 - `description` - (`string`) - Description of the script
@@ -180,17 +180,17 @@ The following JSON keys are supported:
 - `updateURL` - (`string`) - URL location for script updates
 - `downloadURL` - (`string`) - URL location for script download
 
-If no config is supplied, the following default config is used:
+The config will be constructed by both the optional `config` argument and with information from the `package.json` file for
+your current project. Some information will be take from the root of your `package.json` (eg. `author`, `name`, etc.). Other information can be defined in a `gorilla` key in your `package.json`. For example:
 
 ```
-{
-  name: "New Userscript",
-  namespace: "http://tampermonkey.net/",
-  version: "0.1",
-  description: "Gorilla-built, rock-solid, Monkey script",
-  updateURL: "",
-  downloadURL: "",
-  author: "You",
-  include: ["https://**"],
+...
+"name": "This is my awesome script package.json!",
+...
+"gorilla": {
+  "include": ["this_key", "and this one"],
+  "updateURL": "this_url"
 }
 ```
+
+NOTE - any valid keys in the `gorilla` will override anything else from the root `package.json`!
