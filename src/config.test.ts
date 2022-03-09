@@ -20,7 +20,7 @@ test("handles invalid config key", () => {
   };
 
   try {
-    getBanner(config);
+    getBanner(config, true);
   } catch (err) {
     expect(err).toContain(ERROR_MSG.EXPECT_VALID_KEY);
   }
