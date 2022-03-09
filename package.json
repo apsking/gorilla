@@ -35,7 +35,7 @@
     "lint-staged": "^12.3.4",
     "npm": "^8.5.2",
     "prettier": "2.4.1",
-    "sinon": "^11.1.1",
+    "sinon": "^13.0.1",
     "ts-jest": "^26.4.4"
   },
   "repository": {
