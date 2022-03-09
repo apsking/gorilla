@@ -17,21 +17,19 @@ function _interopNamespace(e) {
         var d = Object.getOwnPropertyDescriptor(e, k);
         Object.defineProperty(n, k, d.get ? d : {
           enumerable: true,
-          get: function () {
-            return e[k];
-          }
+          get: function () { return e[k]; }
         });
       }
     });
   }
-  n['default'] = e;
+  n["default"] = e;
   return Object.freeze(n);
 }
 
 var M__default = /*#__PURE__*/_interopDefaultLegacy(M);
 var fs__namespace = /*#__PURE__*/_interopNamespace(fs);
 
-const meow = M__default['default'];
+const meow = M__default["default"];
 
 const HELP_MENU = `
   Usage
