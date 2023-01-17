@@ -158,6 +158,16 @@ eg.
 gorilla --quiet true ...
 ```
 
+### Minify (`--minify, -m`)
+
+Minify the output code.
+
+eg.
+
+```
+gorilla --minify ...
+```
+
 ## Config
 
 The config is based off of the officially supported Metadata Block items found here: https://wiki.greasespot.net/Metadata_Block
