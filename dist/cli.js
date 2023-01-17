@@ -211,7 +211,7 @@ const outputConfig = {
     file: output,
     banner: banner,
     format: "iife",
-    compact: minify
+    compact: minify,
 };
 const rollupConfig = {
     input,
