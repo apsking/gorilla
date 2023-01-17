@@ -66,6 +66,11 @@ const validate = () => {
                 alias: "q",
                 default: false,
             },
+            minify: {
+                type: "boolean",
+                alias: "m",
+                default: false,
+            },
             input: {
                 type: "string",
                 alias: "i",
@@ -196,7 +201,7 @@ ${scriptLines}
 
 const typescript = require("rollup-plugin-typescript");
 //Validate config input
-const { input, output, config, quiet } = validate();
+const { input, output, config, minify } = validate();
 // Get config values
 const configJSON = getConfig(config);
 // Create banner text from config
@@ -206,6 +211,7 @@ const outputConfig = {
     file: output,
     banner: banner,
     format: "iife",
+    compact: minify
 };
 const rollupConfig = {
     input,

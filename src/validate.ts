@@ -14,6 +14,11 @@ const validate = () => {
         alias: "q",
         default: false,
       },
+      minify: {
+        type: "boolean",
+        alias: "m",
+        default: false,
+      },
       input: {
         type: "string",
         alias: "i",

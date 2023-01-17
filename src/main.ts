@@ -5,7 +5,7 @@ import validate from "./validate";
 import { getConfig, getBanner } from "./config";
 
 //Validate config input
-const { input, output, config, quiet } = validate();
+const { input, output, config, minify } = validate();
 
 // Get config values
 const configJSON = getConfig(config);
@@ -18,6 +18,7 @@ const outputConfig: OutputOptions = {
   file: output,
   banner: banner,
   format: "iife",
+  compact: minify,
 };
 const rollupConfig: RollupOptions = {
   input,
