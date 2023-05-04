@@ -18,7 +18,7 @@
   "license": "MIT",
   "dependencies": {
     "@rollup/plugin-node-resolve": "^15.0.1",
-    "meow": "^9.0.0",
+    "meow": "^12.0.1",
     "rollup": "^2.33.3",
     "rollup-plugin-typescript": "^1.0.1",
     "tslib": "^2.0.3",
