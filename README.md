@@ -186,6 +186,7 @@ The following JSON keys are supported by GreaseMonkey:
 - `noframes` - (`string`) - Whether or not to run in frames
 - `require` - (`string[]`) - Scripts to include within the script
 - `resource` - (`string[]`) - Resources to include within the script
+- `run-at` - (`string`) - When to run the script
 - `version` - (`string`) - Version number of the script
 - `updateURL` - (`string`) - URL location for script updates
 - `downloadURL` - (`string`) - URL location for script download

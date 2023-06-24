@@ -30,6 +30,7 @@ export type GorillaConfig = {
   noframes?: string;
   require?: string[];
   resource?: string[];
+  "run-at"?: string;
   updateURL?: string;
   downloadURL?: string;
   version?: string;
@@ -49,6 +50,7 @@ export const VALID_GORILLA_CONFIG_KEYS = [
   "noframes",
   "require",
   "resource",
+  "run-at",
   "version",
   "updateURL",
   "downloadURL",
